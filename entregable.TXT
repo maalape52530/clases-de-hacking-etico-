@@ -1,0 +1,70 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-10-20 17:40 -05
+Stats: 0:00:21 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 35.73% done; ETC: 17:41 (0:00:20 remaining)
+Stats: 0:02:25 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.89% done; ETC: 17:43 (0:00:00 remaining)
+Stats: 0:02:25 elapsed; 0 hosts completed (1 up), 1 undergoing Script Scan
+NSE Timing: About 99.89% done; ETC: 17:43 (0:00:00 remaining)
+Nmap scan report for 37.246.178.68.host.secureserver.net (68.178.246.37)
+Host is up (0.021s latency).
+Not shown: 984 filtered tcp ports (no-response)
+PORT      STATE  SERVICE
+22/tcp    open   ssh
+25/tcp    open   smtp
+| smtp-vuln-cve2010-4344: 
+|_  The SMTP server is not Exim: NOT VULNERABLE
+80/tcp    open   http
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-aspnet-debug: 
+|_  status: DEBUG is enabled
+110/tcp   open   pop3
+143/tcp   open   imap
+443/tcp   open   https
+| http-aspnet-debug: 
+|_  status: DEBUG is enabled
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+| http-slowloris-check: 
+|   VULNERABLE:
+|   Slowloris DOS attack
+|     State: LIKELY VULNERABLE
+|     IDs:  CVE:CVE-2007-6750
+|       Slowloris tries to keep many connections to the target web server open and hold
+|       them open as long as possible.  It accomplishes this by opening connections to
+|       the target web server and sending a partial request. By doing so, it starves
+|       the http server's resources causing Denial Of Service.
+|       
+|     Disclosure date: 2009-09-17
+|     References:
+|       http://ha.ckers.org/slowloris/
+|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+465/tcp   open   smtps
+|_ssl-ccs-injection: No reply from server (TIMEOUT)
+993/tcp   open   imaps
+995/tcp   open   pop3s
+3306/tcp  open   mysql
+8443/tcp  closed https-alt
+50000/tcp closed ibm-db2
+50001/tcp closed unknown
+50002/tcp closed iiimsf
+50006/tcp closed unknown
+50800/tcp closed unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 211.67 seconds
